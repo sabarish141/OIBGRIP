@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add some styling for the to-do list and background image */
+      body {
+        background-image: url("https://thumbs.dreamstime.com/z/old-book-flying-letters-magic-light-background-bookshelf-library-ancient-books-as-symbol-knowledge-history-218640948.jpg");
+        background-size: cover;
+      }
+      
+      #todo-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      #todo-list li {
+        background-color: lightgray;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      
+      #todo-input {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      
+      /* Add some styling for the animation */
+      #add-todo {
+        animation: press-animation 0.1s ease-in;
+      }
+      
+      @keyframes press-animation {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(0.9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>To-Do List</h2>
+    <ul id="todo-list">
+      <!-- List items will be added dynamically using JavaScript -->
+    </ul>
+    <input type="text" id="todo-input" placeholder="Enter a new to-do item">
+    <button id="add-todo">Add</button>
+    
+    <script>
+      // Get references to the to-do list and input field
+      const todoList = document.getElementById("todo-list");
+      const todoInput = document.getElementById("todo-input");
+      
+      // Add a click event listener to the "Add" button
+      document.getElementById("add-todo").addEventListener("click", function() {
+        // Get the value of the input field
+        const todoValue = todoInput.value;
+        
+        // Create a new list item
+        const todoItem = document.createElement("li");
+        todoItem.textContent = todoValue;
+        
+        // Append the new list item to the to-do list
+        todoList.appendChild(todoItem);
+        
+        // Clear the input field
+        todoInput.value = "";
+      });
+    </script>
+  </body>
+</html>
